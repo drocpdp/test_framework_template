@@ -1,0 +1,63 @@
+
+<testrun>
+	<run_locations>
+		<remote_or_local>remote or local</remote_or_local>
+		<proxy>True or False</proxy>
+		<available>
+			<client>
+				<name>saucelabs_local_sauce_connect_proxy</name>
+				<url>http://127.0.0.1:4445/wd/hub</url>
+			</client>
+			<client>
+				<name>saucelabs_ondemand_west_us</name>
+				<url>https://ondemand.saucelabs.com:443/wd/hub</url>
+			</client>
+		</available>
+	</run_locations>
+	<run>
+		<available>
+			<platforms>
+				<type>MAC</type>
+				<type>WIN</type>
+				<type>ANDROID</type>
+				<type>IOS</type>
+			</platforms>
+			<browsers>
+				<browser>
+					<browser_name>firefox</browser_name>
+					<browser_name>safari</browser_name>
+					<browser_name>ie</browser_name>
+					<browser_name>chrome</browser_name>
+				</browser>
+			</browsers>
+		</available>
+	</run>
+
+	<current_run>
+		<project_name>test_framework_template</project_name>
+		<run_name>test_framework_template_run</run_name>
+		<build_name>test_framework_template_build_1</build_name>
+		<properties_section>mobile</properties_section>
+		<report>
+			<from_email>pyautonotification@gmail.com</from_email>
+			<to_emails>davidreynon@gmail.com</to_emails>
+		</report>
+		<run_location>
+			<remote_or_local>local</remote_or_local>
+			<proxy>False</proxy>
+			<run_location_name>saucelabs_ondemand_west_us</run_location_name>
+			<url>https://ondemand.saucelabs.com:443/wd/hub</url>
+		</run_location>
+		<platform>
+			<type>MAC</type>
+			<version>latest</version>
+		</platform>
+		<browser>
+			<browser_name>chrome</browser_name>
+			<version>latest</version>
+			<window_size_x>360</window_size_x>
+			<window_size_y>640</window_size_y>
+		</browser>
+	</current_run>
+
+</testrun>

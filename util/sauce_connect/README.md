@@ -1,0 +1,1 @@
+This should not be included in git repo. Should include sauce connect binaries for each respective OS. Should be inserted with CM scripts.
