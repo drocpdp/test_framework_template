@@ -1,10 +1,11 @@
-# using MailChimp
+# using yagmail for access to GMail
 import os
 import base64
 import datetime
 import sys
-import mailchimp_marketing as MailchimpMarketing
-from mailchimp_marketing.api_client import ApiClientError
+
+import yagmail
+
 from configparser import ConfigParser
 from lib.run_configs import RunConfigs
 from xml_report_access import XMLReportAccess
@@ -30,6 +31,17 @@ class Emailer(object):
         rp = XMLReportAccess().get_report_results_data_object();
         print(self.from_email())
         print(self.today_date())
+
+        try:
+            email_pw = os.environ.get('EMAILER_GMAIL_PASSWORD')
+        except Exception as e:
+            print(e.message)        
+
+        yag = yagmail.SMTP('pyautonotification@gmail.com', email_pw)
+        contents = ['Test results attached']
+        subject = "TEST RESULT - [{}] - {} - {}".format(self.PROJECT_NAME, singular_status, self.today_date())
+        yag.send('davidreynon@gmail.com', subject , contents)
+
 
     def main(self):
         print('in emailer.py main()')
