@@ -22,6 +22,10 @@ python3 $PROJECT_DIRECTORY/lib/run_proxy.py stop
 python3 $PROJECT_DIRECTORY/lib/run_proxy.py start
 
 # import current/new test run config
+# Look in $CONFIGS_TEST_RUNS location for available test runs.
+# $1 should be exact full name of file only
+#   (NOT FULLY QUALIFIED NAME). Example testrunthis.xml
+# This is necessary so Jenkins can access.
 python3 $PROJECT_DIRECTORY/util/import_test_run_config.py $1
 
 # Test runs
@@ -31,7 +35,7 @@ nosetests -a mobile --exe --with-html --html-file=$CURRENT_REPORT_OUTPUT $PROJEC
 python3 $PROJECT_DIRECTORY/lib/run_proxy.py stop
 
 # email out report
-python3 $PROJECT_DIRECTORY/util/emailer_send_grid.py
+python3 $PROJECT_DIRECTORY/util/emailer.py
 
 # cleanup
 file_name=$PROJECT_NAME.html
