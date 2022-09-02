@@ -13,7 +13,7 @@ sudo mkdir /opt/testing/virtualenvs
 sudo mkdir /opt/testing/virtualenvs/$PROJECT_NAME
 sudo mkdir /opt/testing/reports
 sudo mkdir /opt/testing/reports/old_reports
-sudo mkdir /opt/testing/$PROJECT_NAME
+#sudo mkdir /opt/testing/$PROJECT_NAME
 
 # set permissions
 sudo chmod -R 777 /opt/testing/
@@ -29,7 +29,7 @@ sudo zypper -n install python3
 #sudo yum install python-pip
 #sudo pip3 install --upgrade pip
 ### suse (pip3 already installed)
-sudo zypper install python3-pip
+sudo zypper -n install python3-pip
 
 # install/upgrade virtualenv
 pip3 install virtualenv --upgrade
@@ -48,6 +48,7 @@ sudo zypper -n install git
 
 # clone git repo - requires password
 git clone https://github.com/David-Eynon/$PROJECT_NAME.git /opt/testing/$PROJECT_NAME
+sudo chmod -R 777 /opt/testing/$PROJECT_NAME
 
 # install project pip requirements
 pip3 install -r /opt/testing/$PROJECT_NAME/requirements.txt
