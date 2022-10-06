@@ -100,6 +100,8 @@ class Emailer(object):
             print(e.message)
 
     def main(self):
+        print('NOTE::: -> to re-enable emailer... remove from emailer_send_grid.py() - main() -> return statement')
+        return
         self.send_email();
 
 if __name__=="__main__":
